@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 ALLOWED_HOSTS.extend(
 	filter(
 		None,
-		os.environ,get('ALLOWED_HOST', '').split(','),
+		os.environ.get('ALLOWED_HOST', '').split(','),
 	)
 )
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'core',
 ]
 
 MIDDLEWARE = [
