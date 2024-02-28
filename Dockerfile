@@ -15,9 +15,11 @@ RUN python -m venv /py && \
     apk add --update --no-cache postgresql-client && \
     apk add --update --no-cache --virtual .tmp-deps \
         build-base postgresql-dev musl-dev && \
-	/py/bin/pip install psycopg2 && \
+	/py/bin/pip install psycopg2-binary && \
     /py/bin/pip install -r /requirements.txt && \
-    apk del .tmp-deps
+    apk del .tmp-deps && \
+	mkdir -p /vol/web/static && \
+	mkdir -p /vol/web/media
 
 ENV PATH="/py/bin:$PATH"
 
